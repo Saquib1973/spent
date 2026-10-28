@@ -3,42 +3,49 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spent Dashboard</title>
+  <title>WhatUSpent Dashboard</title>
+  <meta name="theme-color" content="#111114" />
+  <link rel="icon" type="image/png" href="/img/favicon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" />
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <nav class="nav">
-      <a class="brand" href="/"><span class="brand-mark">S</span> Spent</a>
-      <div class="nav-links">
-        <a class="btn btn-ghost btn-sm" href="/#download">Get the app</a>
-        <button class="btn btn-dark btn-sm hidden" id="signout">Sign out</button>
-      </div>
-    </nav>
+  <div id="icons"></div>
 
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand glass" href="/"><img src="/img/logo.svg" alt="" width="32" height="32" />WhatUSpent</a>
+      <nav class="nav-links glass">
+        <a class="btn btn-ghost btn-sm" href="/#download"><svg class="i i-sm"><use href="#i-download-simple"/></svg>Get the app</a>
+        <button class="btn btn-secondary btn-sm hidden" id="signout"><svg class="i i-sm"><use href="#i-sign-out"/></svg>Sign out</button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
     <!-- Sign in -->
     <section class="auth hidden" id="auth">
-      <div class="card">
+      <div class="card" data-reveal>
+        <img src="/img/logo.svg" alt="" />
         <h1>Welcome back</h1>
         <p>Sign in with the same account you use in the app.</p>
         <form id="auth-form">
           <label class="field">Email<input type="email" name="email" required autocomplete="email" /></label>
           <label class="field">Password<input type="password" name="password" required minlength="6" autocomplete="current-password" /></label>
           <div class="err" id="auth-err"></div>
-          <button class="btn btn-lime" style="width:100%" type="submit">Sign in</button>
-          <button class="btn btn-ghost" style="width:100%;margin-top:10px" type="button" id="signup">Create account</button>
+          <button class="btn btn-primary btn-block" type="submit">Sign in</button>
+          <button class="btn btn-ghost btn-block" style="margin-top:6px" type="button" id="signup">Create an account</button>
         </form>
       </div>
     </section>
 
     <!-- Dashboard -->
-    <section class="hidden" id="dash">
+    <section class="dash hidden" id="dash">
       <div class="dash-head">
         <div>
-          <h1 id="hello">Hello!</h1>
-          <p>Here's how your spending looks.</p>
+          <p class="muted" id="today"></p>
+          <h1 id="hello">Hello</h1>
         </div>
         <div class="seg" id="range">
           <button data-days="7">1W</button>
@@ -50,62 +57,61 @@
       </div>
 
       <div class="grid">
-        <div class="card dark span-4">
-          <h3>Your balance</h3>
-          <div class="big" id="balance">—</div>
-          <span class="pill" id="net">—</span>
-        </div>
-        <div class="card lime-top span-4">
-          <header><span>Spent</span><span id="range-label"></span></header>
-          <div class="body">
-            <div class="big" id="spent">—</div>
-            <span class="pill" id="change">—</span>
-          </div>
-        </div>
-        <div class="card dark span-4">
-          <h3>Monthly budget</h3>
-          <div class="big" id="budget-left">—</div>
+        <div data-reveal class="card card-dark span-5">
+          <h3>Spent · <span id="range-label"></span></h3>
+          <div class="big" id="spent">—</div>
+          <span class="pill" id="change">—</span>
           <div class="meter"><i id="budget-bar" style="width:0"></i></div>
-          <small id="budget-note" style="color:#b8b8bd"></small>
+          <small class="muted" id="budget-note"></small>
         </div>
+        <div data-reveal class="card span-7" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px">
+          <div><h3>Balance</h3><div class="big" id="balance">—</div><span class="pill" id="net">—</span></div>
+          <div><h3>Earned</h3><div class="big" id="earned" style="color:var(--green)">—</div><small class="muted" id="count"></small></div>
+          <div><h3>Saved</h3><div class="big" id="savings">—</div><small class="muted">avg <span id="avg"></span>/day</small></div>
+        </div>
+        <div style="display:none"><span id="budget-left"></span></div>
 
-        <div class="card span-3"><h3>Earned</h3><div class="big" id="earned">—</div><small class="up">income in range</small></div>
-        <div class="card span-3"><h3>Avg / day</h3><div class="big" id="avg">—</div><small style="color:var(--ink-3)">spending</small></div>
-        <div class="card span-3"><h3>Savings rate</h3><div class="big" id="savings">—</div><small style="color:var(--ink-3)">of income kept</small></div>
-        <div class="card span-3"><h3>Transactions</h3><div class="big" id="count">—</div><small style="color:var(--ink-3)">in range</small></div>
-
-        <div class="card span-8">
+        <div data-reveal class="card span-8">
           <h3>Spending vs income</h3>
           <div class="chart-box"><canvas id="trend"></canvas></div>
         </div>
-        <div class="card span-4">
+        <div data-reveal class="card span-4">
           <h3>By category</h3>
           <div class="chart-box sm"><canvas id="cats"></canvas></div>
           <ul class="legend" id="cat-legend"></ul>
         </div>
 
-        <div class="card span-6">
+        <div data-reveal class="card span-6">
           <h3>Last 6 months</h3>
           <div class="chart-box sm"><canvas id="monthly"></canvas></div>
         </div>
-        <div class="card span-6">
+        <div data-reveal class="card span-6">
           <h3>By weekday</h3>
           <div class="chart-box sm"><canvas id="weekday"></canvas></div>
         </div>
 
-        <div class="card span-5">
+        <div data-reveal class="card span-5">
           <h3>Top merchants</h3>
           <div class="chart-box sm"><canvas id="merchants"></canvas></div>
         </div>
-        <div class="card span-7">
+        <div data-reveal class="card span-7">
           <h3>Recent transactions</h3>
           <div id="recent"></div>
         </div>
       </div>
     </section>
-  </div>
-  <footer class="wrap">Spent web dashboard</footer>
+  </main>
 
+  <script>
+    // Cards rise in, staggered, once the dashboard is shown.
+    const reveal = () => [...document.querySelectorAll('[data-reveal]:not(.in)')].filter((el) => el.offsetParent !== null).forEach((el, i) => {
+      el.style.setProperty('--d', i);
+      requestAnimationFrame(() => el.classList.add('in'));
+    });
+    new MutationObserver(reveal).observe(document.querySelector('main'), { attributes: true, subtree: true, attributeFilter: ['class'] });
+    reveal();
+  </script>
+  <script>fetch('/img/icons.svg').then((r) => r.text()).then((svg) => (document.getElementById('icons').innerHTML = svg));</script>
   <script src="/config.js"></script>
   <script src="/vendor/supabase.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>

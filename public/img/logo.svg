@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024">
+  <defs>
+    <radialGradient id="glow" cx="78%" cy="18%" r="75%"><stop offset="0" stop-color="#3D63D6" stop-opacity=".55"/><stop offset="1" stop-color="#3D63D6" stop-opacity="0"/></radialGradient>
+    <linearGradient id="sheen" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".10"/><stop offset=".45" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <rect width="1024" height="1024" rx="232" fill="#111114"/>
+  <rect width="1024" height="1024" rx="232" fill="url(#glow)"/>
+  <rect width="1024" height="1024" rx="232" fill="url(#sheen)"/>
+  <polyline points="300,388 418,676 512,486 606,676 712,420" fill="none" stroke="#FFFFFF" stroke-width="88" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="760" cy="300" r="64" fill="#5B8CFF"/></svg>

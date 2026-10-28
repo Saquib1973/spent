@@ -1,9 +1,9 @@
 {
-  "name": "spent-server",
+  "name": "whatuspent-server",
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "Spent backend: REST API + web dashboard + app download page",
+  "description": "WhatUSpent backend: REST API + web dashboard + app download page",
   "scripts": {
     "start": "node src/index.js",
     "dev": "node --watch src/index.js",

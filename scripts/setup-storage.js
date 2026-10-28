@@ -1,4 +1,4 @@
-// Creates (or updates) the storage buckets Spent needs.
+// Creates (or updates) the storage buckets WhatUSpent needs.
 // Usage: npm run setup:storage
 import { admin, BUCKETS } from '../src/supabase.js';
 

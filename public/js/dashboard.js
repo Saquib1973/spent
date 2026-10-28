@@ -1,10 +1,10 @@
-const { supabaseUrl, supabasePublishableKey } = window.SPENT_CONFIG;
+const { supabaseUrl, supabasePublishableKey } = window.WHATUSPENT_CONFIG;
 const sb = window.supabase.createClient(supabaseUrl, supabasePublishableKey);
 
 const $ = (id) => document.getElementById(id);
 // Chart colours come from the CSS tokens, so they follow light/dark mode.
 const css = (name) => getComputedStyle(document.documentElement).getPropertyValue(name).trim();
-const C = { ink: css('--ink'), lime: css('--accent'), green: '#22C55E', red: css('--red'), grid: css('--line'), muted: css('--ink-3') };
+const C = { ink: css('--ink'), lime: css('--accent'), green: '#22C55E', red: css('--red'), grid: css('--line'), muted: css('--muted') };
 let days = 30;
 let currency = 'USD';
 const charts = {};
@@ -15,7 +15,7 @@ const money = (n, opts = {}) =>
 Chart.defaults.font.family = 'Inter, system-ui, sans-serif';
 Chart.defaults.color = C.muted;
 Chart.defaults.plugins.legend.display = false;
-Chart.defaults.plugins.tooltip.backgroundColor = css('--pop');
+Chart.defaults.plugins.tooltip.backgroundColor = css('--surface');
 Chart.defaults.plugins.tooltip.titleColor = C.muted;
 Chart.defaults.plugins.tooltip.bodyColor = C.ink;
 Chart.defaults.plugins.tooltip.borderColor = C.grid;
@@ -38,7 +38,8 @@ async function showForSession(session) {
   $('signout').classList.toggle('hidden', !session);
   if (session) {
     const name = session.user.user_metadata?.full_name || session.user.email.split('@')[0];
-    $('hello').textContent = `Hello, ${name}!`;
+    $('hello').textContent = `Hello, ${name}`;
+    $('today').textContent = new Date().toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric' });
     await load();
   }
 }
@@ -90,8 +91,8 @@ function pill(el, value, { invert = false, suffix = '' } = {}) {
   if (value == null) { el.textContent = 'no prior data'; el.className = 'pill'; return; }
   const good = invert ? value <= 0 : value >= 0;
   el.className = `pill ${good ? 'up' : 'down'}`;
-  el.style.color = good ? C.green : C.red;
-  el.textContent = `${value >= 0 ? '▲' : '▼'} ${Math.abs(value).toFixed(1)}%${suffix}`;
+  el.style.color = good ? '#4ade80' : '#f87171';
+  el.innerHTML = `<svg class="i i-sm"><use href="#i-caret-${value >= 0 ? 'up' : 'down'}-fill"/></svg>${Math.abs(value).toFixed(1)}%${suffix}`;
 }
 
 function render(a) {
@@ -106,7 +107,7 @@ function render(a) {
   $('earned').textContent = money(t.earned);
   $('avg').textContent = money(t.avgPerDay);
   $('savings').textContent = t.savingsRate == null ? '—' : `${t.savingsRate.toFixed(0)}%`;
-  $('count').textContent = t.transactions;
+  $('count').textContent = `${t.transactions} transactions`;
 
   const { monthly: budget, spentThisMonth } = a.budget;
   const pct = budget ? Math.min(100, (spentThisMonth / budget) * 100) : 0;

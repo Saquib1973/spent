@@ -20,7 +20,7 @@ app.use((req, res, next) => {
 
 // Only the publishable key is exposed to the browser.
 app.get('/config.js', (_req, res) => {
-  res.type('application/javascript').send(`window.SPENT_CONFIG = ${JSON.stringify(publicConfig)};`);
+  res.type('application/javascript').send(`window.WHATUSPENT_CONFIG = ${JSON.stringify(publicConfig)};`);
 });
 
 app.use(express.static(join(root, '..', 'public'), { extensions: ['html'] }));
@@ -122,5 +122,5 @@ app.get(
 );
 
 app.listen(PORT, () => {
-  console.log(`Spent server running on http://localhost:${PORT}`);
+  console.log(`WhatUSpent server running on http://localhost:${PORT}`);
 });

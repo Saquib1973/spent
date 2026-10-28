@@ -3,141 +3,211 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Spent — Track every dollar</title>
-  <meta name="description" content="Spent is a beautiful expense tracker for iOS and Android with real-time analytics." />
+  <title>WhatUSpent — know what you spent</title>
+  <meta name="description" content="WhatUSpent is a simple expense tracker for Android. Log spending in seconds, catch UPI and card payments automatically, and see where your money goes." />
+  <meta name="theme-color" content="#111114" />
+  <link rel="icon" type="image/png" href="/img/favicon.png" />
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" />
   <link rel="stylesheet" href="/css/styles.css" />
 </head>
 <body>
-  <div class="wrap">
-    <nav class="nav">
-      <a class="brand" href="/"><span class="brand-mark">S</span> Spent</a>
-      <div class="nav-links">
-        <a class="btn btn-ghost btn-sm" href="#features">Features</a>
-        <a class="btn btn-dark btn-sm" href="/dashboard">Web dashboard</a>
-      </div>
-    </nav>
+  <div id="icons"></div>
 
+  <header class="nav">
+    <div class="wrap">
+      <a class="brand glass" href="/"><img src="/img/logo.svg" alt="" width="32" height="32" />WhatUSpent</a>
+      <nav class="nav-links glass">
+        <a href="#how">How it works</a>
+        <a href="#features">Features</a>
+        <a href="/dashboard">Dashboard</a>
+        <a class="btn btn-primary btn-sm" href="#download"><svg class="i i-sm"><use href="#i-download-simple"/></svg>Get the app</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
     <section class="hero">
       <div>
-        <span class="eyebrow"><i></i> Now on Android &amp; iOS</span>
-        <h1>Know where your money <mark>went.</mark></h1>
-        <p>Spent logs your expenses and income in seconds, snaps receipts, and turns it all into clear charts — spending trends, category breakdowns and budget tracking.</p>
-        <div class="cta">
-          <a class="btn btn-lime" href="#download">Download the app ↓</a>
-          <a class="btn btn-ghost" href="/dashboard">Open dashboard</a>
+        <span class="eyebrow" data-reveal><svg class="i i-sm"><use href="#i-android-logo"/></svg>Free for Android</span>
+        <h1 data-words>Know what <span class="accent">you spent.</span></h1>
+        <p class="lead" data-reveal style="--d:3">Log an expense in three taps, let payments from Google Pay, PhonePe, Paytm and your bank add themselves, and see exactly where your money goes.</p>
+        <div class="cta" data-reveal style="--d:4">
+          <a class="btn btn-primary apk-link" href="#download"><svg class="i"><use href="#i-download-simple"/></svg>Download APK</a>
+          <a class="btn btn-secondary" href="/dashboard"><svg class="i"><use href="#i-chart-line-up"/></svg>Open web dashboard</a>
+        </div>
+        <div class="meta" data-reveal style="--d:5">
+          <span><svg class="i i-sm"><use href="#i-shield-check"/></svg>Private to your account</span>
+          <span class="apk-meta"></span>
         </div>
       </div>
 
-      <div class="phones" aria-hidden="true">
-        <div class="phone">
-          <div class="p-balance">
-            <small>Your Balance</small>
-            <b>$9,891.21</b>
-            <div class="p-actions">
-              <span><em></em>Income</span>
-              <span><em></em>Expense</span>
-              <span class="on"><em></em>Receipt</span>
-            </div>
-          </div>
-          <div class="p-row"><div><b>Groceries</b><br /><small>Whole Foods</small></div><div><b>$84.20</b><br /><small class="down">▼ expense</small></div></div>
-          <div class="p-row"><div><b>Salary</b><br /><small>Acme Inc.</small></div><div><b>$4,200</b><br /><small class="up">▲ income</small></div></div>
-          <div class="p-row"><div><b>Transport</b><br /><small>Uber</small></div><div><b>$18.40</b><br /><small class="down">▼ expense</small></div></div>
+      <div class="phone" aria-hidden="true" data-reveal style="--d:2">
+        <div class="ph-top">
+          <span class="ph-round glass"><svg class="i i-sm"><use href="#i-bell"/></svg></span>
+          <span class="ph-month glass">October <svg class="i i-sm"><use href="#i-caret-up-down"/></svg></span>
+          <span class="ph-avatar">K</span>
         </div>
-        <div class="phone tilt">
-          <div class="p-card">
-            <header><span>This month</span><span>Oct 2026</span></header>
-            <div><small style="color:#aaa">Total spent</small><br /><b>$1,389.80</b> <span class="up" style="float:right;color:var(--lime)">▲ 4.3%</span></div>
+        <div>
+          <div class="ph-label">Spent this month</div>
+          <div class="ph-row-top">
+            <div class="ph-amt num">₹<span data-count="18420" style="opacity:1">18,420</span><span>.50</span></div>
+            <span class="delta glass"><i><svg class="i"><use href="#i-arrow-down-right"/></svg></i>−8.4%</span>
           </div>
-          <div class="p-grid">
-            <div>Trend<b>Saving</b><span class="up">-12.1%</span> 7 days</div>
-            <div>Budget<b>62%</b><span class="up">$611</span> left</div>
+        </div>
+        <div class="card card-dark ph-hero">
+          <span class="muted" style="font-size:12px">Left to spend</span>
+          <div class="amt num">₹11,579<small>.50</small></div>
+          <div class="bar"><i style="width:61%"></i></div>
+          <div class="ph-stats muted" style="grid-template-columns:1fr 1fr">
+            <span>Safe per day<b class="num">₹1,302</b></span>
+            <span>Balance<b class="num">₹1,24,300</b></span>
           </div>
-          <svg viewBox="0 0 220 110" style="width:100%;margin-top:10px;background:#fff;border-radius:14px">
-            <path d="M10 80 C 40 20, 60 20, 75 70 S 110 40, 125 60 S 160 100, 175 50 S 200 10, 210 20" fill="none" stroke="#16a34a" stroke-width="2.5" />
-          </svg>
+        </div>
+        <div class="ph-tiles">
+          <div class="ph-tile dark"><span class="ic"><svg class="i i-sm"><use href="#i-fork-knife"/></svg></span><div>Food<small>₹6,240</small></div></div>
+          <div class="ph-tile"><span class="ic" style="background:var(--surface)"><svg class="i i-sm" style="color:#16a34a"><use href="#i-shopping-cart"/></svg></span><div>Groceries<small>₹4,110</small></div></div>
+          <div class="ph-tile"><span class="ic" style="background:var(--surface)"><svg class="i i-sm" style="color:#0284c7"><use href="#i-car"/></svg></span><div>Transport<small>₹2,050</small></div></div>
+        </div>
+        <div class="card ph-card">
+          <div class="ph-row">
+            <span class="ic" style="background:var(--accent-soft);color:var(--accent)"><svg class="i i-sm"><use href="#i-lightning-fill"/></svg></span>
+            <div><b class="num">₹250 to Swiggy</b><small>Google Pay · just now</small></div>
+            <span class="ph-add">Add</span>
+          </div>
+        </div>
+        <div class="ph-nav">
+          <div class="tabs glass">
+            <span class="on"><svg class="i"><use href="#i-wallet-fill"/></svg></span>
+            <span><svg class="i"><use href="#i-arrows-down-up"/></svg></span>
+            <span><svg class="i"><use href="#i-chart-pie-slice"/></svg></span>
+          </div>
+          <span class="plus glass"><svg class="i"><use href="#i-plus"/></svg></span>
         </div>
       </div>
     </section>
-  </div>
 
-  <section class="section" id="features">
-    <div class="wrap">
-      <h2>Everything you need, nothing you don't</h2>
-      <p class="lead">Built on Supabase — your data is private to your account and synced across devices.</p>
+    <section class="section" id="how">
+      <div class="section-head" data-reveal>
+        <h2>Set up in a minute. Then it mostly runs itself.</h2>
+        <p>No spreadsheets, no bank logins.</p>
+      </div>
+      <div class="steps">
+        <div class="card step" data-reveal>
+          <span class="icon-chip"><svg class="i"><use href="#i-download-simple"/></svg></span>
+          <div class="n">Step 1</div><h3>Install and sign up</h3>
+          <p>Download the APK below and create an account with your email.</p>
+        </div>
+        <div class="card step" data-reveal>
+          <span class="icon-chip"><svg class="i"><use href="#i-target"/></svg></span>
+          <div class="n">Step 2</div><h3>Set a monthly budget</h3>
+          <p>Pick your currency and budget. Home shows what’s safe to spend each day.</p>
+        </div>
+        <div class="card step" data-reveal>
+          <span class="icon-chip"><svg class="i"><use href="#i-lightning"/></svg></span>
+          <div class="n">Step 3</div><h3>Payments add themselves</h3>
+          <p>Turn on payment capture. When you pay, a notification asks if you want to add it.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="features">
+      <div class="section-head" data-reveal>
+        <h2>Everything you need, nothing you don’t</h2>
+      </div>
       <div class="features">
-        <div class="feature"><div class="ico">⚡</div><h3>Log in seconds</h3><p>Add an expense or income with amount, category and merchant in a couple of taps.</p></div>
-        <div class="feature"><div class="ico">📈</div><h3>Spending analytics</h3><p>Trend lines, category donuts, weekday patterns and month-over-month comparisons.</p></div>
-        <div class="feature"><div class="ico">🧾</div><h3>Receipts &amp; media</h3><p>Attach a photo or short video of a receipt. Stored privately in your own storage folder.</p></div>
-        <div class="feature"><div class="ico">🎯</div><h3>Monthly budget</h3><p>Set a budget and watch how much of it is left as the month goes on.</p></div>
-        <div class="feature"><div class="ico">🔒</div><h3>Private by default</h3><p>Row-level security means only you can read your transactions and receipts.</p></div>
-        <div class="feature"><div class="ico">🖥️</div><h3>Web dashboard</h3><p>Sign in on the web to see the same insights on a big screen.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-lightning"/></svg></span><h3>Automatic capture</h3><p>Reads payment notifications from UPI, wallet and bank apps on your phone. Nothing is saved until you tap Add.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-chart-line-up"/></svg></span><h3>Clear insights</h3><p>Spending trend, categories, weekday patterns and income versus spending over six months.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-target"/></svg></span><h3>Safe to spend</h3><p>Your budget turned into one number: how much you can spend per day for the rest of the month.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-receipt"/></svg></span><h3>Receipts</h3><p>Attach a photo or short video of a receipt. Stored privately in your own folder.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-shield-check"/></svg></span><h3>Private by default</h3><p>Row-level security means only you can read your transactions and receipts.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-globe"/></svg></span><h3>Web dashboard</h3><p>Sign in on any computer to see the same numbers on a bigger screen.</p></div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section class="section" id="download">
-    <div class="wrap">
-      <div class="download">
-        <div class="rings"></div>
-        <div style="position:relative;z-index:1">
-          <h2>Get Spent</h2>
-          <p>Download the latest Android build below. While the app is in development you can also run it instantly with Expo Go:</p>
-          <ol class="steps">
-            <li>Install <b>Expo Go</b> from the App Store or Play Store</li>
-            <li>In the <code>app</code> folder run <code>npx expo start</code></li>
-            <li>Scan the QR code with your phone</li>
-          </ol>
-          <div id="promo"></div>
+    <section class="section" id="download">
+      <div class="card card-dark download" data-reveal>
+        <div>
+          <h2>Get WhatUSpent for Android</h2>
+          <p class="lead">One small download. The app tells you when a new version is out.</p>
+          <a class="btn btn-primary apk-link" href="/downloads/whatuspent.apk" download><svg class="i"><use href="#i-download-simple"/></svg><span class="apk-label">Download APK</span></a>
+          <p class="muted apk-meta" style="margin-top:12px;font-size:13px"></p>
         </div>
-        <div class="release-list" id="releases">
-          <div class="release"><div>Loading builds…</div></div>
-        </div>
+        <ol>
+          <li><div>Download the APK<small>Tap the button on your Android phone.</small></div></li>
+          <li><div>Allow the install<small>Android asks once to allow installs from your browser.</small></div></li>
+          <li><div>Open WhatUSpent<small>Sign up, set your budget and you’re done.</small></div></li>
+        </ol>
       </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
-  <footer class="wrap">© <span id="year"></span> Spent. Made with Supabase.</footer>
+  <footer class="wrap">
+    <span>© <span id="year"></span> WhatUSpent</span>
+    <a href="/dashboard">Web dashboard</a>
+  </footer>
 
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
 
-    const fmtSize = (b) => (b == null ? '' : b > 1e6 ? (b / 1e6).toFixed(1) + ' MB' : Math.ceil(b / 1e3) + ' KB');
-    const label = (name) =>
-      /\.apk$/i.test(name) ? 'Android APK' : /\.(aab)$/i.test(name) ? 'Android App Bundle' :
-      /\.ipa$/i.test(name) ? 'iOS build' : /\.(mp4|mov)$/i.test(name) ? 'Promo video' : 'File';
+    // Headline: split into words that rise in one after another.
+    document.querySelectorAll('[data-words]').forEach((el) => {
+      let n = 0;
+      const split = (node) => {
+        [...node.childNodes].forEach((child) => {
+          if (child.nodeType === 3) {
+            const frag = document.createDocumentFragment();
+            child.textContent.split(/(\s+)/).forEach((part) => {
+              if (!part.trim()) return frag.append(part);
+              const w = document.createElement('span');
+              w.className = 'w'; w.style.setProperty('--d', n++); w.textContent = part;
+              frag.append(w);
+            });
+            child.replaceWith(frag);
+          } else split(child);
+        });
+      };
+      split(el);
+    });
 
-    fetch('/api/releases')
-      .then((r) => r.json())
-      .then(({ files = [] }) => {
-        const list = document.getElementById('releases');
-        const builds = files.filter((f) => !/^(video|image)\//.test(f.mimetype ?? ''));
-        const video = files.find((f) => /^video\//.test(f.mimetype ?? ''));
+    // Stagger siblings that reveal together (cards in a grid).
+    document.querySelectorAll('.steps, .features').forEach((grid) =>
+      [...grid.children].forEach((el, i) => el.style.setProperty('--d', i)),
+    );
 
-        if (video) {
-          const v = document.createElement('video');
-          v.className = 'promo'; v.src = video.url; v.controls = true; v.muted = true; v.playsInline = true;
-          document.getElementById('promo').append(v);
-        }
+    // Reveal on scroll.
+    const io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.classList.add('in');
+      io.unobserve(e.target);
+      e.target.querySelectorAll('[data-count]').forEach(countUp);
+    }), { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el));
 
-        list.innerHTML = '';
-        if (!builds.length) {
-          list.innerHTML = '<div class="release"><div>No builds published yet<small>Upload one with <code>npm run upload:release -- spent.apk</code></small></div></div>';
-          return;
-        }
-        for (const f of builds) {
-          const a = document.createElement('a');
-          a.className = 'release'; a.href = f.url; a.setAttribute('download', '');
-          a.innerHTML = `<div><b></b><small></small></div><span class="go">↓</span>`;
-          a.querySelector('b').textContent = f.name;
-          a.querySelector('small').textContent = [label(f.name), fmtSize(f.size), new Date(f.createdAt).toLocaleDateString()].filter(Boolean).join(' · ');
-          list.append(a);
-        }
+    // Numbers count up when they appear.
+    function countUp(el) {
+      const target = Number(el.dataset.count), t0 = performance.now(), dur = 1100;
+      const fmt = new Intl.NumberFormat('en-IN');
+      const tick = (t) => {
+        const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+        el.textContent = fmt.format(Math.round(target * e));
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    }
+    fetch('/img/icons.svg').then((r) => r.text()).then((svg) => (document.getElementById('icons').innerHTML = svg));
+
+    // Release info comes from the same manifest the app uses to check for updates.
+    fetch('/downloads/latest.json', { cache: 'no-store' })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((rel) => {
+        if (!rel) return;
+        const size = rel.size ? ` · ${(rel.size / 1e6).toFixed(1)} MB` : '';
+        document.querySelectorAll('.apk-link').forEach((a) => { a.href = rel.url; a.setAttribute('download', ''); });
+        document.querySelectorAll('.apk-meta').forEach((el) => (el.textContent = `Version ${rel.version}${size} · Android 7+`));
       })
-      .catch(() => {
-        document.getElementById('releases').innerHTML = '<div class="release"><div>Could not load builds</div></div>';
-      });
+      .catch(() => {});
   </script>
 </body>
 </html>
