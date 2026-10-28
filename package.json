@@ -1,0 +1,21 @@
+{
+  "name": "spent-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Spent backend: REST API + web dashboard + app download page",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "node --watch src/index.js",
+    "setup:storage": "node scripts/setup-storage.js",
+    "upload:release": "node scripts/upload-release.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.118.0",
+    "dotenv": "^18.0.9",
+    "express": "^4.22.3"
+  }
+}

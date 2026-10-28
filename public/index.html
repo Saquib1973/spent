@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spent — Track every dollar</title>
+  <meta name="description" content="Spent is a beautiful expense tracker for iOS and Android with real-time analytics." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/"><span class="brand-mark">S</span> Spent</a>
+      <div class="nav-links">
+        <a class="btn btn-ghost btn-sm" href="#features">Features</a>
+        <a class="btn btn-dark btn-sm" href="/dashboard">Web dashboard</a>
+      </div>
+    </nav>
+
+    <section class="hero">
+      <div>
+        <span class="eyebrow"><i></i> Now on Android &amp; iOS</span>
+        <h1>Know where your money <mark>went.</mark></h1>
+        <p>Spent logs your expenses and income in seconds, snaps receipts, and turns it all into clear charts — spending trends, category breakdowns and budget tracking.</p>
+        <div class="cta">
+          <a class="btn btn-lime" href="#download">Download the app ↓</a>
+          <a class="btn btn-ghost" href="/dashboard">Open dashboard</a>
+        </div>
+      </div>
+
+      <div class="phones" aria-hidden="true">
+        <div class="phone">
+          <div class="p-balance">
+            <small>Your Balance</small>
+            <b>$9,891.21</b>
+            <div class="p-actions">
+              <span><em></em>Income</span>
+              <span><em></em>Expense</span>
+              <span class="on"><em></em>Receipt</span>
+            </div>
+          </div>
+          <div class="p-row"><div><b>Groceries</b><br /><small>Whole Foods</small></div><div><b>$84.20</b><br /><small class="down">▼ expense</small></div></div>
+          <div class="p-row"><div><b>Salary</b><br /><small>Acme Inc.</small></div><div><b>$4,200</b><br /><small class="up">▲ income</small></div></div>
+          <div class="p-row"><div><b>Transport</b><br /><small>Uber</small></div><div><b>$18.40</b><br /><small class="down">▼ expense</small></div></div>
+        </div>
+        <div class="phone tilt">
+          <div class="p-card">
+            <header><span>This month</span><span>Oct 2026</span></header>
+            <div><small style="color:#aaa">Total spent</small><br /><b>$1,389.80</b> <span class="up" style="float:right;color:var(--lime)">▲ 4.3%</span></div>
+          </div>
+          <div class="p-grid">
+            <div>Trend<b>Saving</b><span class="up">-12.1%</span> 7 days</div>
+            <div>Budget<b>62%</b><span class="up">$611</span> left</div>
+          </div>
+          <svg viewBox="0 0 220 110" style="width:100%;margin-top:10px;background:#fff;border-radius:14px">
+            <path d="M10 80 C 40 20, 60 20, 75 70 S 110 40, 125 60 S 160 100, 175 50 S 200 10, 210 20" fill="none" stroke="#16a34a" stroke-width="2.5" />
+          </svg>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="section" id="features">
+    <div class="wrap">
+      <h2>Everything you need, nothing you don't</h2>
+      <p class="lead">Built on Supabase — your data is private to your account and synced across devices.</p>
+      <div class="features">
+        <div class="feature"><div class="ico">⚡</div><h3>Log in seconds</h3><p>Add an expense or income with amount, category and merchant in a couple of taps.</p></div>
+        <div class="feature"><div class="ico">📈</div><h3>Spending analytics</h3><p>Trend lines, category donuts, weekday patterns and month-over-month comparisons.</p></div>
+        <div class="feature"><div class="ico">🧾</div><h3>Receipts &amp; media</h3><p>Attach a photo or short video of a receipt. Stored privately in your own storage folder.</p></div>
+        <div class="feature"><div class="ico">🎯</div><h3>Monthly budget</h3><p>Set a budget and watch how much of it is left as the month goes on.</p></div>
+        <div class="feature"><div class="ico">🔒</div><h3>Private by default</h3><p>Row-level security means only you can read your transactions and receipts.</p></div>
+        <div class="feature"><div class="ico">🖥️</div><h3>Web dashboard</h3><p>Sign in on the web to see the same insights on a big screen.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="download">
+    <div class="wrap">
+      <div class="download">
+        <div class="rings"></div>
+        <div style="position:relative;z-index:1">
+          <h2>Get Spent</h2>
+          <p>Download the latest Android build below. While the app is in development you can also run it instantly with Expo Go:</p>
+          <ol class="steps">
+            <li>Install <b>Expo Go</b> from the App Store or Play Store</li>
+            <li>In the <code>app</code> folder run <code>npx expo start</code></li>
+            <li>Scan the QR code with your phone</li>
+          </ol>
+          <div id="promo"></div>
+        </div>
+        <div class="release-list" id="releases">
+          <div class="release"><div>Loading builds…</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">© <span id="year"></span> Spent. Made with Supabase.</footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const fmtSize = (b) => (b == null ? '' : b > 1e6 ? (b / 1e6).toFixed(1) + ' MB' : Math.ceil(b / 1e3) + ' KB');
+    const label = (name) =>
+      /\.apk$/i.test(name) ? 'Android APK' : /\.(aab)$/i.test(name) ? 'Android App Bundle' :
+      /\.ipa$/i.test(name) ? 'iOS build' : /\.(mp4|mov)$/i.test(name) ? 'Promo video' : 'File';
+
+    fetch('/api/releases')
+      .then((r) => r.json())
+      .then(({ files = [] }) => {
+        const list = document.getElementById('releases');
+        const builds = files.filter((f) => !/^(video|image)\//.test(f.mimetype ?? ''));
+        const video = files.find((f) => /^video\//.test(f.mimetype ?? ''));
+
+        if (video) {
+          const v = document.createElement('video');
+          v.className = 'promo'; v.src = video.url; v.controls = true; v.muted = true; v.playsInline = true;
+          document.getElementById('promo').append(v);
+        }
+
+        list.innerHTML = '';
+        if (!builds.length) {
+          list.innerHTML = '<div class="release"><div>No builds published yet<small>Upload one with <code>npm run upload:release -- spent.apk</code></small></div></div>';
+          return;
+        }
+        for (const f of builds) {
+          const a = document.createElement('a');
+          a.className = 'release'; a.href = f.url; a.setAttribute('download', '');
+          a.innerHTML = `<div><b></b><small></small></div><span class="go">↓</span>`;
+          a.querySelector('b').textContent = f.name;
+          a.querySelector('small').textContent = [label(f.name), fmtSize(f.size), new Date(f.createdAt).toLocaleDateString()].filter(Boolean).join(' · ');
+          list.append(a);
+        }
+      })
+      .catch(() => {
+        document.getElementById('releases').innerHTML = '<div class="release"><div>Could not load builds</div></div>';
+      });
+  </script>
+</body>
+</html>

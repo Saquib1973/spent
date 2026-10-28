@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spent Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" />
+  <link rel="stylesheet" href="/css/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="/"><span class="brand-mark">S</span> Spent</a>
+      <div class="nav-links">
+        <a class="btn btn-ghost btn-sm" href="/#download">Get the app</a>
+        <button class="btn btn-dark btn-sm hidden" id="signout">Sign out</button>
+      </div>
+    </nav>
+
+    <!-- Sign in -->
+    <section class="auth hidden" id="auth">
+      <div class="card">
+        <h1>Welcome back</h1>
+        <p>Sign in with the same account you use in the app.</p>
+        <form id="auth-form">
+          <label class="field">Email<input type="email" name="email" required autocomplete="email" /></label>
+          <label class="field">Password<input type="password" name="password" required minlength="6" autocomplete="current-password" /></label>
+          <div class="err" id="auth-err"></div>
+          <button class="btn btn-lime" style="width:100%" type="submit">Sign in</button>
+          <button class="btn btn-ghost" style="width:100%;margin-top:10px" type="button" id="signup">Create account</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Dashboard -->
+    <section class="hidden" id="dash">
+      <div class="dash-head">
+        <div>
+          <h1 id="hello">Hello!</h1>
+          <p>Here's how your spending looks.</p>
+        </div>
+        <div class="seg" id="range">
+          <button data-days="7">1W</button>
+          <button data-days="30" class="on">1M</button>
+          <button data-days="90">3M</button>
+          <button data-days="180">6M</button>
+          <button data-days="365">1Y</button>
+        </div>
+      </div>
+
+      <div class="grid">
+        <div class="card dark span-4">
+          <h3>Your balance</h3>
+          <div class="big" id="balance">—</div>
+          <span class="pill" id="net">—</span>
+        </div>
+        <div class="card lime-top span-4">
+          <header><span>Spent</span><span id="range-label"></span></header>
+          <div class="body">
+            <div class="big" id="spent">—</div>
+            <span class="pill" id="change">—</span>
+          </div>
+        </div>
+        <div class="card dark span-4">
+          <h3>Monthly budget</h3>
+          <div class="big" id="budget-left">—</div>
+          <div class="meter"><i id="budget-bar" style="width:0"></i></div>
+          <small id="budget-note" style="color:#b8b8bd"></small>
+        </div>
+
+        <div class="card span-3"><h3>Earned</h3><div class="big" id="earned">—</div><small class="up">income in range</small></div>
+        <div class="card span-3"><h3>Avg / day</h3><div class="big" id="avg">—</div><small style="color:var(--ink-3)">spending</small></div>
+        <div class="card span-3"><h3>Savings rate</h3><div class="big" id="savings">—</div><small style="color:var(--ink-3)">of income kept</small></div>
+        <div class="card span-3"><h3>Transactions</h3><div class="big" id="count">—</div><small style="color:var(--ink-3)">in range</small></div>
+
+        <div class="card span-8">
+          <h3>Spending vs income</h3>
+          <div class="chart-box"><canvas id="trend"></canvas></div>
+        </div>
+        <div class="card span-4">
+          <h3>By category</h3>
+          <div class="chart-box sm"><canvas id="cats"></canvas></div>
+          <ul class="legend" id="cat-legend"></ul>
+        </div>
+
+        <div class="card span-6">
+          <h3>Last 6 months</h3>
+          <div class="chart-box sm"><canvas id="monthly"></canvas></div>
+        </div>
+        <div class="card span-6">
+          <h3>By weekday</h3>
+          <div class="chart-box sm"><canvas id="weekday"></canvas></div>
+        </div>
+
+        <div class="card span-5">
+          <h3>Top merchants</h3>
+          <div class="chart-box sm"><canvas id="merchants"></canvas></div>
+        </div>
+        <div class="card span-7">
+          <h3>Recent transactions</h3>
+          <div id="recent"></div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer class="wrap">Spent web dashboard</footer>
+
+  <script src="/config.js"></script>
+  <script src="/vendor/supabase.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <script src="/js/dashboard.js"></script>
+</body>
+</html>
