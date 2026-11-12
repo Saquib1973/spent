@@ -34,7 +34,7 @@
         <h1 data-words>Know what <span class="accent">you spent.</span></h1>
         <p class="lead" data-reveal style="--d:3">Log an expense in three taps, let payments from Google Pay, PhonePe, Paytm and your bank add themselves, and see exactly where your money goes.</p>
         <div class="cta" data-reveal style="--d:4">
-          <a class="btn btn-primary apk-link" href="#download"><svg class="i"><use href="#i-download-simple"/></svg>Download APK</a>
+          <a class="btn btn-primary" href="#download"><svg class="i"><use href="#i-download-simple"/></svg>Download APK</a>
           <a class="btn btn-secondary" href="/dashboard"><svg class="i"><use href="#i-chart-line-up"/></svg>Open web dashboard</a>
         </div>
         <div class="meta" data-reveal style="--d:5">
@@ -105,9 +105,9 @@
           <p>Pick your currency and budget. Home shows what’s safe to spend each day.</p>
         </div>
         <div class="card step" data-reveal>
-          <span class="icon-chip"><svg class="i"><use href="#i-lightning"/></svg></span>
-          <div class="n">Step 3</div><h3>Payments add themselves</h3>
-          <p>Turn on payment capture. When you pay, a notification asks if you want to add it.</p>
+          <span class="icon-chip"><svg class="i"><use href="#i-plus"/></svg></span>
+          <div class="n">Step 3</div><h3>Add in seconds</h3>
+          <p>Tap +, type the amount, pick a category and account. It works without internet too.</p>
         </div>
       </div>
     </section>
@@ -117,7 +117,9 @@
         <h2>Everything you need, nothing you don’t</h2>
       </div>
       <div class="features">
-        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-lightning"/></svg></span><h3>Automatic capture</h3><p>Reads payment notifications from UPI, wallet and bank apps on your phone. Nothing is saved until you tap Add.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-bank"/></svg></span><h3>All your accounts</h3><p>Bank, savings, credit cards, cash and wallets, each with its own balance, plus what you owe on cards.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-arrows-clockwise"/></svg></span><h3>Works offline</h3><p>Add and delete with no signal. Everything is kept on your phone and syncs in one go when you’re back online.</p></div>
+        <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-tag"/></svg></span><h3>Your categories</h3><p>Start with sensible defaults, then add, rename, recolour or delete them to fit how you spend.</p></div>
         <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-chart-line-up"/></svg></span><h3>Clear insights</h3><p>Spending trend, categories, weekday patterns and income versus spending over six months.</p></div>
         <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-target"/></svg></span><h3>Safe to spend</h3><p>Your budget turned into one number: how much you can spend per day for the rest of the month.</p></div>
         <div class="card feature" data-reveal><span class="icon-chip"><svg class="i"><use href="#i-receipt"/></svg></span><h3>Receipts</h3><p>Attach a photo or short video of a receipt. Stored privately in your own folder.</p></div>
@@ -127,18 +129,21 @@
     </section>
 
     <section class="section" id="download">
-      <div class="card card-dark download" data-reveal>
-        <div>
-          <h2>Get WhatUSpent for Android</h2>
-          <p class="lead">One small download. The app tells you when a new version is out.</p>
-          <a class="btn btn-primary apk-link" href="/downloads/whatuspent.apk" download><svg class="i"><use href="#i-download-simple"/></svg><span class="apk-label">Download APK</span></a>
-          <p class="muted apk-meta" style="margin-top:12px;font-size:13px"></p>
+      <div class="section-head" data-reveal>
+        <h2>Get the app</h2>
+        <p>Budgets, history, insights, receipts, accounts and offline sync. One download for Android.</p>
+      </div>
+      <div class="flavors">
+        <div class="card card-dark flavor" data-reveal>
+          <span class="badge glass-dark"><svg class="i i-sm"><use href="#i-shield-check"/></svg>Installs normally</span>
+          <h3>WhatUSpent</h3>
+          <p class="lead">Add a payment in a few taps, from any of your accounts, online or off.</p>
+          <a class="btn btn-primary apk-link" href="/downloads/whatuspent.apk" download><svg class="i"><use href="#i-download-simple"/></svg>Download</a>
+          <p class="muted apk-meta"></p>
+          <div class="install-note">
+            <b>Installing:</b> tap the file and allow installs from your browser when Android asks. It updates any earlier version (full or Lite) and keeps your data.
+          </div>
         </div>
-        <ol>
-          <li><div>Download the APK<small>Tap the button on your Android phone.</small></div></li>
-          <li><div>Allow the install<small>Android asks once to allow installs from your browser.</small></div></li>
-          <li><div>Open WhatUSpent<small>Sign up, set your budget and you’re done.</small></div></li>
-        </ol>
       </div>
     </section>
   </main>
@@ -203,9 +208,15 @@
       .then((r) => (r.ok ? r.json() : null))
       .then((rel) => {
         if (!rel) return;
-        const size = rel.size ? ` · ${(rel.size / 1e6).toFixed(1)} MB` : '';
-        document.querySelectorAll('.apk-link').forEach((a) => { a.href = rel.url; a.setAttribute('download', ''); });
-        document.querySelectorAll('.apk-meta').forEach((el) => (el.textContent = `Version ${rel.version}${size} · Android 7+`));
+        // One APK for everyone: every download button points at it.
+        document.querySelectorAll('.apk-link').forEach((a) => {
+          a.href = rel.url;
+          a.setAttribute('download', '');
+        });
+        document.querySelectorAll('.apk-meta').forEach((el) => {
+          const size = rel.size ? ` · ${(rel.size / 1e6).toFixed(1)} MB` : '';
+          el.textContent = `Version ${rel.version}${size} · Android 7+`;
+        });
       })
       .catch(() => {});
   </script>

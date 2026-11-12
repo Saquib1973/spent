@@ -1,9 +1,11 @@
 {
-  "version": "1.0.0",
-  "versionCode": 1,
-  "url": "/downloads/whatuspent.apk",
-  "size": 12701131,
-  "minAndroid": "7.0",
-  "releasedAt": "2026-10-28",
-  "notes": ["First release of WhatUSpent"]
+    "version":  "1.1.0",
+    "versionCode":  3,
+    "url":  "/downloads/whatuspent.apk",
+    "size":  13064308,
+    "minAndroid":  "7.0",
+    "releasedAt":  "2026-11-12",
+    "notes":  [
+
+              ]
 }
