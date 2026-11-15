@@ -1,12 +1,15 @@
 {
-    "version":  "1.2.3",
-    "versionCode":  8,
+    "version":  "1.3.0",
+    "versionCode":  9,
     "url":  "/downloads/whatuspent.apk",
-    "size":  13110512,
+    "size":  12976412,
     "minAndroid":  "7.0",
     "releasedAt":  "2026-11-15",
     "notes":  [
-                  "Updates now download and install inside the app",
-                  "Settings shows where updates come from"
+                  "New look: tangerine and aubergine theme, new icon and launch animation",
+                  "Smoother pull to refresh with the coin",
+                  "Redesigned search with one filters sheet",
+                  "Tabs no longer switch while you scroll up or down",
+                  "Updates and confirmations use the app\u0027s own sheets"
               ]
 }
