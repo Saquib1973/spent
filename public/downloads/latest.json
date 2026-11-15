@@ -1,11 +1,13 @@
 {
-    "version":  "1.3.2",
-    "versionCode":  11,
+    "version":  "1.3.3",
+    "versionCode":  12,
     "url":  "/downloads/whatuspent.apk",
-    "size":  12980068,
+    "size":  12982056,
     "minAndroid":  "7.0",
     "releasedAt":  "2026-11-15",
     "notes":  [
-                  "The number pad on Add only shows while you enter the amount. Tap the amount to bring it back"
+                  "New number pad: rounded keys, swipe down or Done to close, long-press delete to clear",
+                  "The amount is grouped (1,23,456) and reacts as you type",
+                  "Smoother screen transitions, and deleted transactions fold out of the list"
               ]
 }
