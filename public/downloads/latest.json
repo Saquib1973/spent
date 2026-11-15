@@ -1,13 +1,14 @@
 {
-    "version":  "1.3.3",
-    "versionCode":  12,
+    "version":  "1.3.4",
+    "versionCode":  13,
     "url":  "/downloads/whatuspent.apk",
-    "size":  12982056,
+    "size":  12985036,
     "minAndroid":  "7.0",
-    "releasedAt":  "2026-11-15",
+    "releasedAt":  "2026-11-16",
     "notes":  [
-                  "New number pad: rounded keys, swipe down or Done to close, long-press delete to clear",
-                  "The amount is grouped (1,23,456) and reacts as you type",
-                  "Smoother screen transitions, and deleted transactions fold out of the list"
+                  "Redesigned Add screen with an expense/income toggle, clearer amount and detail rows",
+                  "The number pad closes when you scroll or tap elsewhere; tap the amount to bring it back",
+                  "Quick add folds away smoothly",
+                  "History shows one Clear filters button"
               ]
 }
