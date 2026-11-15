@@ -1,11 +1,12 @@
 {
-    "version":  "1.2.2",
-    "versionCode":  7,
+    "version":  "1.2.3",
+    "versionCode":  8,
     "url":  "/downloads/whatuspent.apk",
-    "size":  13110832,
+    "size":  13110512,
     "minAndroid":  "7.0",
     "releasedAt":  "2026-11-15",
     "notes":  [
-
+                  "Updates now download and install inside the app",
+                  "Settings shows where updates come from"
               ]
 }
