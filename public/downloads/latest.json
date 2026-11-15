@@ -1,15 +1,12 @@
 {
-    "version":  "1.3.0",
-    "versionCode":  9,
+    "version":  "1.3.1",
+    "versionCode":  10,
     "url":  "/downloads/whatuspent.apk",
-    "size":  12976412,
+    "size":  12979676,
     "minAndroid":  "7.0",
     "releasedAt":  "2026-11-15",
     "notes":  [
-                  "New look: tangerine and aubergine theme, new icon and launch animation",
-                  "Smoother pull to refresh with the coin",
-                  "Redesigned search with one filters sheet",
-                  "Tabs no longer switch while you scroll up or down",
-                  "Updates and confirmations use the app\u0027s own sheets"
+                  "Add shows your most-used categories and accounts, with More for the rest",
+                  "Fewer sideways-scrolling rows: History filters now open in one sheet"
               ]
 }
